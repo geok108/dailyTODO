@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
+
 @Component({
   moduleId: module.id,
   selector: 'tasks',
@@ -8,6 +9,9 @@ import { TaskService } from '../../services/task.service';
 })
 
 export class TasksComponent {
-  constructor(private TaskService: TaskService)
+  constructor(private taskService: TaskService){
+
+
+  }
 
 }
