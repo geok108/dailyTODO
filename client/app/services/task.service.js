@@ -12,16 +12,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var TaskService = /** @class */ (function () {
+var TaskService = (function () {
     function TaskService(http) {
         this.http = http;
         console.log('Task Service Initialized..');
     }
-    TaskService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], TaskService);
+    TaskService.prototype.getTasks = function () {
+        return this.http.get('http://localhost:3000/api/tasks')
+            .map(function (res) { return res.json(); });
+    };
     return TaskService;
 }());
+TaskService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], TaskService);
 exports.TaskService = TaskService;
 //# sourceMappingURL=task.service.js.map

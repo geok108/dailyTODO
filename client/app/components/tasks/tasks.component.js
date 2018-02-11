@@ -11,19 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var task_service_1 = require("../../services/task.service");
-var TasksComponent = /** @class */ (function () {
+var TasksComponent = (function () {
     function TasksComponent(taskService) {
         this.taskService = taskService;
+        this.taskService.getTasks()
+            .subscribe(function (tasks) {
+            console.log(tasks);
+        });
     }
-    TasksComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'tasks',
-            templateUrl: 'tasks.component.html'
-        }),
-        __metadata("design:paramtypes", [task_service_1.TaskService])
-    ], TasksComponent);
     return TasksComponent;
 }());
+TasksComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'tasks',
+        templateUrl: 'tasks.component.html'
+    }),
+    __metadata("design:paramtypes", [task_service_1.TaskService])
+], TasksComponent);
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=tasks.component.js.map
